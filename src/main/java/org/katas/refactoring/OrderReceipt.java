@@ -22,7 +22,7 @@ public class OrderReceipt {
             receipt.append(String.format("%s\t%s\t%s\t%s\n",
                     lineItem.getDescription(), lineItem.getPrice(),
                     lineItem.getQuantity(), lineItem.totalAmount()));
-            double salesTax = lineItem.totalAmount() * .10;
+            double salesTax = lineItem.calculateSalesTax();
             totalSalesTax += salesTax;
             totalAmount += lineItem.totalAmount() + salesTax;
         }
